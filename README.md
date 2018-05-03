@@ -398,3 +398,138 @@ Timesheets Endpoint
 
 	-401 Developer doesn't have access to clients
 	 "error": "API account doesn't have access to any clients"
+	 
+Agency Project Endpoint
+===
+
+## Parameters
+	-token
+		Developer token that are valid for 7 days
+	-clientID
+        the football club the data is requested for, the developer must have access to the client
+        
+	-id
+		the agency project id(optional)
+	-page
+	    default: 0
+		  Ex. page=20
+		  - The page number of results to return based on limit
+	- limit
+	    default: 20
+		- Limit the number of rows/response
+		  Ex. limit=25
+	-sort
+	    default: id, others available fields(:name)
+		- sorting the rows/response specify on sort value
+		  Ex. sort=name
+    -created_at
+	    default: nil
+		- querying to locations table by date range(:created_at)
+		  Ex. created_at>='2012-02-01', created_at<='2012-02-31'
+    -updated_at
+	    default: nil
+		- querying to locations table by date range(:updated_at)
+		  Ex. updated_at>='2012-02-01', updated_at<='2012-02-31'
+
+## Method
+	- GET api/v1/agency_projects
+
+## Example Request
+  	api/v1/agency_projects?token=5961f27f9540498bfd445f895fc017d490cd3bd8ec54a2fc&clientID=13&id=2516&page=1&limit=1&sort=id&created_at>='2012-02-01'
+
+	## Body Response
+	-200 Response will be an agency project object.
+	[
+    {
+        "id": 1,
+        "name": "New agency",
+        "description": "description",
+        "status": "A",
+        "position": 1,
+        "created_at": "2018-05-03T10:51:10.966Z",
+        "updated_at": "2018-05-03T10:51:10.966Z"
+    }
+]
+
+	## Header Response
+		x-page → 2 (the current page number)
+		x-per-page → 20 (total records per page)
+		x-total → 325 (total number of records)
+
+	-401 Invalid token supplied
+	 "error": "Invalid token, please re-authenticate to generate a new token"
+
+	-401 Token expired
+	 "error": "Expired token, please re-authenticate to generate a new token"
+
+	-401 Developer doesn't have access to clients
+	 "error": "API account doesn't have access to any clients"
+	 
+Session Group Endpoint
+===
+
+## Parameters
+	-token
+		Developer token that are valid for 7 days
+	-clientID
+        the football club the data is requested for, the developer must have access to the client
+        
+	-id
+		the session group id(optional)
+	-page
+	    default: 0
+		  Ex. page=20
+		  - The page number of results to return based on limit
+	- limit
+	    default: 20
+		- Limit the number of rows/response
+		  Ex. limit=25
+	-sort
+	    default: id, others available fields(:name)
+		- sorting the rows/response specify on sort value
+		  Ex. sort=name
+    -created_at
+	    default: nil
+		- querying to locations table by date range(:created_at)
+		  Ex. created_at>='2012-02-01', created_at<='2012-02-31'
+    -updated_at
+	    default: nil
+		- querying to locations table by date range(:updated_at)
+		  Ex. updated_at>='2012-02-01', updated_at<='2012-02-31'
+
+## Method
+	- GET api/v1/agency_projects
+
+## Example Request
+  	api/v1/agency_projects?token=5961f27f9540498bfd445f895fc017d490cd3bd8ec54a2fc&clientID=13&id=2516&page=1&limit=1&sort=id&created_at>='2012-02-01'
+
+	## Body Response
+	-200 Response will be an session group object.
+	[
+    {
+        "id": 1,
+        "name": "session group",
+        "description": "description",
+        "status": "A",
+        "position": 1,
+        "created_at": "2018-05-03T10:51:29.613Z",
+        "updated_at": "2018-05-03T10:51:29.613Z"
+    }
+]
+
+	## Header Response
+		x-page → 2 (the current page number)
+		x-per-page → 20 (total records per page)
+		x-total → 325 (total number of records)
+
+	-401 Invalid token supplied
+	 "error": "Invalid token, please re-authenticate to generate a new token"
+
+	-401 Token expired
+	 "error": "Expired token, please re-authenticate to generate a new token"
+
+	-401 Developer doesn't have access to clients
+	 "error": "API account doesn't have access to any clients"
+
+
+
